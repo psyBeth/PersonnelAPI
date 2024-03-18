@@ -38,6 +38,14 @@ module.exports = {
         })
     },
     update: async (req, res) => {
+        const isLead = req.body.isLead || false;
+        if(isLead){
+            const { departmentId } = await Personnel.findOne(
+                { _id: req.params.id }, 
+                {departmentId: 1}
+            );
+        }
+
         const data = await Personnel.updateOne({_id: req.params.id}, req.body, { runValidators: true });
         res.status(202).send({
             error: false,
