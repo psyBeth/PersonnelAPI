@@ -52,7 +52,7 @@ app.all('/', (req, res) => {
 app.use('/departments', require('./src/routes/department.router'));
 
 // personnel
-app.use('/personnel', require('./src/routes/personnel.router'));
+app.use('/personnels', require('./src/routes/personnel.router'));
 
 /* ------------------------------------------------------- */
 
