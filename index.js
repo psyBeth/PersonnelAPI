@@ -1,4 +1,4 @@
-"use strict"
+'use strict'
 /* -------------------------------------------------------
     EXPRESS - Personnel API
 ------------------------------------------------------- */
@@ -12,11 +12,20 @@ const express = require('express')
 const app = express()
 
 /* ------------------------------------------------------- */
-//Required modules
+//? Required modules
 
 //env variables
 require('dotenv').config()
 const PORT = process.env?.PORT || 8000
+
+// async errors for errorHandler
+require('express-async-errors')
+/* ------------------------------------------------------- */
+
+//? Configuration
+// connect to DB
+const { dbConnection } = require('./src/configs/dbConnection')
+dbConnection()
 
 /* ------------------------------------------------------- */
 
