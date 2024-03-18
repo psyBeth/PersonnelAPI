@@ -46,7 +46,10 @@ app.all('/', (req, res) => {
         error: false,
         message: 'Welcome to PERSONNEL API',
     })
-})
+});
+
+// departments
+app.use('/departments', require('./src/routes/department.router'));
 
 /* ------------------------------------------------------- */
 
