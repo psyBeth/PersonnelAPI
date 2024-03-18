@@ -20,22 +20,22 @@ module.exports = {
         });
     },
     read: async (req, res) => {
-        const data = await Department.findOne({_id: req.params.id});
+        const data = await Department.findOne({ _id: req.params.id });
         res.status(200).send({
             error: false,
             data,
         })
     },
     update: async (req, res) => {
-        const data = await Department.updateOne({_id: req.params.id}, req.body, { runValidators: true });
+        const data = await Department.updateOne({ _id: req.params.id }, req.body, { runValidators: true });
         res.status(202).send({
             error: false,
             data,
-            new: await Department.findOne({_id: req.params.id}),
+            new: await Department.findOne({ _id: req.params.id }),
         });
     },
     delete: async (req, res) => {
-        const data = await Department.deleteOne({_id: req.params.id});
+        const data = await Department.deleteOne({ _id: req.params.id });
         // const isDeleted = data.deletedCount >= 1 ? true : false;
         // res.status(isDeleted ? 204 : 404).send({
         //     error: !isDeleted,
@@ -46,4 +46,22 @@ module.exports = {
             data,
         });
     },
-}
+
+    personnels: async (req, res) => {
+        const Personnel = require("../models/personnel.model");
+        const data = await res.getModelList(
+            Personnel,
+            { departmentId: req.params.id },
+            "departmentId"
+        );
+        res.status(200).send({
+            error: false,
+            detail: await res.getModelListDetails(
+                Personnel,
+                { departmentId: req.params.id },
+                "departmentId"
+            ),
+            data,
+        });
+    },
+};
