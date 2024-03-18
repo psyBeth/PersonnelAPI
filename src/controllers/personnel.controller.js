@@ -44,6 +44,10 @@ module.exports = {
                 { _id: req.params.id }, 
                 {departmentId: 1}
             );
+            await Personnel.updateMany(
+                {departmentId, isLead: true}, 
+                {isLead: false}
+            );
         }
 
         const data = await Personnel.updateOne({_id: req.params.id}, req.body, { runValidators: true });
