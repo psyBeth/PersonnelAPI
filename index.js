@@ -49,6 +49,7 @@ app.all('/', (req, res) => {
     res.send({
         error: false,
         message: 'Welcome to PERSONNEL API',
+        user: req.user,
     })
 });
 
@@ -59,10 +60,6 @@ app.all('/', (req, res) => {
 // app.use('/personnels', require('./src/routes/personnel.router'));
 
 app.use(require('./src/routes/'))
-
-/* ------------------------------------------------------- */
-
-/* ------------------------------------------------------- */
 
 /* ------------------------------------------------------- */
 

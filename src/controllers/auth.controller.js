@@ -61,11 +61,25 @@ module.exports = {
         // req.session = null
 
         /* Token */
-        
+        //? 1st method
+        // each user has only 1 token
+        // console.log(req.user);
+        // await Token.deleteOne({ userId: req.user._id})
+
+        //? 2nd method
+        // a user might have multiple tokens
+        // login from multiple devices at once
+        // example: netflix profiles
+        const auth = req.headers?.authorization || null // Token ...tokenKey...
+        const tokenKey = auth ? auth.split(' ') : null // ['Token', '...tokenKey...']
+    
+        if (tokenKey && tokenKey[0]=='Token') {
+            await Token.deleteOne({ token: tokenKey[1] })
+        }
 
         res.status(200).send({
             error: false,
-            message: 'Logout: Sessions Deleted.'
+            message: 'Logout: Token Deleted.'
         })
     },
 };
