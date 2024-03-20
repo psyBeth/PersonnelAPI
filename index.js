@@ -40,6 +40,10 @@ app.use(require('cookie-session')({ secret: process.env.SECRET_KEY }))
 app.use(require('./src/middlewares/findSearchSortPage'))
 /* ------------------------------------------------------- */
 
+// Authentication (Simple Token);
+app.use(require('./src/middlewares/authentication'))
+
+/* ------------------------------------------------------- */
 //? Routes
 app.all('/', (req, res) => {
     res.send({

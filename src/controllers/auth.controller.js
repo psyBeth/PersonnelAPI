@@ -58,7 +58,11 @@ module.exports = {
 
     logout: async (req, res) => {
         // Set session to null:
-        req.session = null
+        // req.session = null
+
+        /* Token */
+        
+
         res.status(200).send({
             error: false,
             message: 'Logout: Sessions Deleted.'
