@@ -23,8 +23,11 @@ module.exports = {
                 if (req.body?.rememberMe) {
                     req.sessionOptions.maxAge = 1000 * 60 * 60 * 24 * 3 // 3 Days
                 }
-                 SESSION */
-                 
+                /*  SESSION */
+
+                /* TOKEN
+
+                /* TOKEN */
 
                 res.status(200).send({
                     error: false,
