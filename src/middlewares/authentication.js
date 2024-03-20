@@ -13,7 +13,7 @@ module.exports = async (req, res, next) => {
     const tokenKey = auth ? auth.split(' ') : null  //['Token', '...tokenKey...']  
     
     if(tokenKey && tokenKey[0]=='Token') {
-        const tokenData = await Token.findOne({ token: tokenkey[1] }).populate('userId')
+        const tokenData = await Token.findOne({ token: tokenKey[1] }).populate('userId')
         if(tokenData) req.user = tokenData.userId
     }
 
