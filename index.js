@@ -48,11 +48,13 @@ app.all('/', (req, res) => {
     })
 });
 
-// departments
-app.use('/departments', require('./src/routes/department.router'));
+// // departments
+// app.use('/departments', require('./src/routes/department.router'));
 
-// personnel
-app.use('/personnels', require('./src/routes/personnel.router'));
+// // personnel
+// app.use('/personnels', require('./src/routes/personnel.router'));
+
+app.use(require('./src/routes/'))
 
 /* ------------------------------------------------------- */
 
