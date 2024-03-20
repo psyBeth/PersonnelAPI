@@ -13,7 +13,7 @@ module.exports = {
         if (username && password) {
 
             const user = await Personnel.findOne({ username, password })
-            if (user) {
+            if (user && user.isActive) {
 
                 /* SESSION
                 // Set Session:
@@ -72,14 +72,17 @@ module.exports = {
         // example: netflix profiles
         const auth = req.headers?.authorization || null // Token ...tokenKey...
         const tokenKey = auth ? auth.split(' ') : null // ['Token', '...tokenKey...']
-    
+        
+        let deleted = null;
+
         if (tokenKey && tokenKey[0]=='Token') {
-            await Token.deleteOne({ token: tokenKey[1] })
+            const deleted = await Token.deleteOne({ token: tokenKey[1] })
         }
 
         res.status(200).send({
             error: false,
-            message: 'Logout: Token Deleted.'
+            message: 'Logout: Token Deleted.',
+            deleted
         })
     },
 };
