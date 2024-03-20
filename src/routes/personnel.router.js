@@ -1,13 +1,10 @@
 'use strict'
+
 const router = require('express').Router();
 
 const personnel = require('../controllers/personnel.controller');
 
 //? URL: /personnel
-
-// Login - Logout 
-router.post('/login', personnel.login);
-router.all('/logout', personnel.logout)
 
 router.route('/')
     .get(personnel.list)
