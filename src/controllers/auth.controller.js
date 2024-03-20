@@ -3,6 +3,7 @@
 const Personnel = require('../models/personnel.model');
 
 module.exports = {
+
     login: async (req, res) => {
 
         const { username, password } = req.body
@@ -12,6 +13,7 @@ module.exports = {
             const user = await Personnel.findOne({ username, password })
             if (user) {
 
+                /* SESSION
                 // Set Session:
                 req.session = {
                     id: user._id,
@@ -21,6 +23,8 @@ module.exports = {
                 if (req.body?.rememberMe) {
                     req.sessionOptions.maxAge = 1000 * 60 * 60 * 24 * 3 // 3 Days
                 }
+                 SESSION */
+                 
 
                 res.status(200).send({
                     error: false,
