@@ -25,8 +25,17 @@ module.exports = {
                 }
                 /*  SESSION */
 
-                /* TOKEN
+                /* TOKEN */
+                // is there a token?
+                let tokenData = await Token.findOne({ userId: user._id });
 
+                // if there's no token, create it:
+                if (!tokenData) {
+                    const tokenKey = passwordEncrypt(user._id + Date.now())
+                    // console.log(typeof tokenKey, tokenKey)
+                    tokenData = await Token.create({ userId: user._id, token: tokenKey })
+                }
+                
                 /* TOKEN */
 
                 res.status(200).send({
