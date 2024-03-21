@@ -8,6 +8,20 @@ module.exports = {
 
     login: async (req, res) => {
 
+        /* DEMO
+            #swagger.tags = ['Authentication']
+            #swagger.summary = 'Login'
+            #swagger.description = 'login username and password'
+            #swagger.parameters['body' = {
+                in: 'body',
+                required: 'true',
+                schema: {
+                    username: 'testF00',
+                    password: '123456'
+                }
+            }]
+        */
+
         const { username, password } = req.body
 
         if (username && password) {
@@ -57,6 +71,12 @@ module.exports = {
     },
 
     logout: async (req, res) => {
+        /*
+            #swagger.tags = ['Authentication']
+            #swagger.summary = 'Logout'
+            #swagger.description = 'Delete Token'
+        */
+
         // Set session to null:
         // req.session = null
 
