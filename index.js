@@ -27,12 +27,12 @@ require('express-async-errors')
 const { dbConnection } = require('./src/configs/dbConnection')
 dbConnection()
 
-/* ------------------------------------------------------- */
+/* ------------------------------------------------------- *
 
 //? MORGAN LOGGING
 // https://expressjs.com/en/resources/middleware/morgan.html
 // https://github.com/expressjs/morgan
-//* $ npm i morgan
+//? $ npm i morgan
 
 const morgan = require('morgan');
 
@@ -64,6 +64,9 @@ app.use(morgan('combined', {
 //? Middlewares
 // Accept JSON:
 app.use(express.json())
+
+// Logging:
+app.use(require('./src/middlewares/logging'))
 
 // Cookies-Sessins
 app.use(require('cookie-session')({ secret: process.env.SECRET_KEY }))
