@@ -67,12 +67,22 @@ app.use(morgan('combined', {
 // $ npm i swagger-ui-express
 // $ npm i redoc-express
 
+//? JSON:
+app.use('/documents/json', (req, res) => {
+    res.sendFile('swagger.json', { root: '.' })
+});
+// check here:
+// http://127.0.0.1:8000/documents/json
+// if there's a problem here, redoc will not work
+
 //? SWAGGER:
 const swaggerUi = require('swagger-ui-express');
 const swaggerJson = require("./swagger.json");
-app.use('/documents/swagger',swaggerUi.serve,swaggerUi.setup(swaggerJson, { swaggerOptions: { persistAuthorization: true } }))
+app.use('/documents/swagger',swaggerUi.serve,swaggerUi.setup(swaggerJson, { swaggerOptions: { persistAuthorization: true } }));
 // check here:
 // http://127.0.0.1:8000/documents/swagger/
+
+
 
 /* ------------------------------------------------------- */
 
