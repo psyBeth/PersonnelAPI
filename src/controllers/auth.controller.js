@@ -71,7 +71,7 @@ module.exports = {
     },
 
     logout: async (req, res) => {
-        /*
+        /*  DEMO
             #swagger.tags = ['Authentication']
             #swagger.summary = 'Logout'
             #swagger.description = 'Delete Token'
