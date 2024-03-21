@@ -43,6 +43,10 @@ module.exports = {
                 { departmentId, isLead: true },
                 { isLead: false }
             );
+        };
+        if(!req.user.isAdmin) {
+            req.body.isAdmin = false
+            delete req.body.salary
         }
 
         const data = await Personnel.updateOne({ _id: req.params.id }, req.body, { runValidators: true });
