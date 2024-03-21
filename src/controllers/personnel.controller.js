@@ -44,6 +44,7 @@ module.exports = {
                 { isLead: false }
             );
         };
+        
         if(!req.user.isAdmin) {
             req.body.isAdmin = false
             delete req.body.salary
