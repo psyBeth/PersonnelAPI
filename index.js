@@ -61,6 +61,14 @@ app.use(morgan('combined', {
 
 /* ------------------------------------------------------- */
 
+//? DOCUMENTATION:
+//* https://swagger-autogen.github.io/docs/
+// $ npm i swagger-autogen
+// $ npm i swagger-ui-express
+// $ npm i redoc-express
+
+/* ------------------------------------------------------- */
+
 //? Middlewares
 // Accept JSON:
 app.use(express.json())
