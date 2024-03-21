@@ -20,11 +20,11 @@ module.exports = {
             next()
         } else {
             res.errorStatusCode = 403
-            throw new Error('NoPermission: You must login and to be Admin.')
+            throw new Error('NoPermission: You must login as an Admin.')
         }
     },
 
-    isLead: (req, res, next) => {
+    isAdminOrLead: (req, res, next) => {
 
         const departmentId = req.params?.id
 
@@ -36,7 +36,7 @@ module.exports = {
             next()
         } else {
             res.errorStatusCode = 403
-            throw new Error('NoPermission: You must login and to be Admin or Department Lead.')
+            throw new Error('NoPermission: You must login as an Admin or Department Lead.')
         }
     },
 }

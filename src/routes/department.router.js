@@ -3,11 +3,12 @@
 const router = require('express').Router();
 
 const department = require('../controllers/department.controller');
+const permissions = require('../middlewares/permissions');
 
 //? URL: /departments
 
 router.route('/')
-    .get(department.list)
+    .get(permissions.isLogin, department.list)
     .post(department.create);
 
 router.route('/:id')
