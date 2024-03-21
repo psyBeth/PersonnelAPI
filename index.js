@@ -82,7 +82,14 @@ app.use('/documents/swagger',swaggerUi.serve,swaggerUi.setup(swaggerJson, { swag
 // check here:
 // http://127.0.0.1:8000/documents/swagger/
 
-
+//? REDOC:
+const redoc = require('redoc-express');
+app.use('/documents/redoc', redoc({
+    title: 'PersonnelAPI',
+    specUrl: '/documents/json'
+}))
+// check here: 
+// http://127.0.0.1:8000/documents/redoc
 
 /* ------------------------------------------------------- */
 
