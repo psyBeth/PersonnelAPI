@@ -4,11 +4,11 @@ const router = require('express').Router();
 
 const token = require('../controllers/token.controller');
 // const permissions = require('../middlewares/permissions');
-// const { isAdmin } = require("../middlewares/permissions");
+const { isAdmin } = require("../middlewares/permissions");
 
 // URL: /tokens
 
-// router.use(isAdmin);
+router.use(isAdmin);
 
 router.route('/')
     .get(token.list)
