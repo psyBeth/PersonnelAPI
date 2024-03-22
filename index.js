@@ -8,24 +8,24 @@
     $ npm i jsonwebtoken
 */
 
-const express = require('express')
-const app = express()
+const express = require('express');
+const app = express();
 
 /* ------------------------------------------------------- */
 //? Required modules
 
 //env variables
-require('dotenv').config()
-const PORT = process.env?.PORT || 8000
+require('dotenv').config();
+const PORT = process.env?.PORT || 8000;
 
 // async errors for errorHandler
-require('express-async-errors')
+require('express-async-errors');
 /* ------------------------------------------------------- */
 
 //? Configuration
 // connect to DB
 const { dbConnection } = require('./src/configs/dbConnection')
-dbConnection()
+dbConnection();
 
 /* ------------------------------------------------------- *
 
@@ -112,6 +112,7 @@ app.use(require('./src/middlewares/authentication'))
 
 /* ------------------------------------------------------- */
 //? Routes
+
 app.all('/', (req, res) => {
     res.send({
         error: false,

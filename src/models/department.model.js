@@ -2,8 +2,6 @@
 
 const { mongoose } = require('../configs/dbConnection');
 
-/* MODEL */
-
 const DepartmentSchema = new mongoose.Schema({
     // _id
     name: {

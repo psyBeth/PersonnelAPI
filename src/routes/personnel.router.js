@@ -8,8 +8,8 @@ const permissions = require('../middlewares/permissions');
 //? URL: /personnels/
 
 router.route('/')
-    .get( personnel.list)
-    .post( personnel.create)
+    .get(permissions.isAdmin, personnel.list)
+    .post(permissions.isAdmin, personnel.create)
 
 router.route('/:id')
     .get(permissions.isAdminorOwn, personnel.read)
@@ -17,5 +17,5 @@ router.route('/:id')
     .patch(permissions.isAdminorOwn, personnel.update)
     .delete(permissions.isAdmin, personnel.delete)
 
-/* ------------------------------------------------------- */
-module.exports = router
+    
+module.exports = router;

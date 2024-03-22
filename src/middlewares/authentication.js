@@ -1,5 +1,7 @@
 'use strict'
 
+// app.use(authentication):
+
 const Token = require('../models/token.model');
 
 module.exports = async (req, res, next) => {

@@ -7,4 +7,4 @@ module.exports = (err, req, res, next) => {
         cause: err.cause,
         body: req.body
     })
-}
+};
